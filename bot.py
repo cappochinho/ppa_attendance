@@ -4,9 +4,9 @@ import json
 import os
 from telebot import TeleBot
 
-from list_to_pdf import list_to_pdf
-
-
+# create .env file in directory and add the following
+# export BOT_TOKEN=5947393876:AAEzNwt_VDQUGqnxDn-56OiBRZ9iAAPSA3g
+# enter 'source .env' in your terminal
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
 bot = TeleBot(BOT_TOKEN)
 
@@ -33,8 +33,8 @@ def check_attendance(message):
                 add_to_list.append(person['name'])
                 add_to_list.append(
                     person['hub_attendance_logs'][-1]['location'])
-                add_to_list.append(
-                    person['hub_attendance_logs'][-1]['timestamp'])
+                # add_to_list.append(
+                #     person['hub_attendance_logs'][-1]['timestamp'])
                 in_list.append(add_to_list)
     
     with open('in_list.json', 'w', encoding='utf-8') as f:
